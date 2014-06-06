@@ -1,0 +1,31 @@
+.tag-cell{
+    width: 230px;
+    border-bottom: 1px dotted rgb(224, 224, 224);
+    padding-bottom: 12px;
+    padding-right: 6px;
+    padding-top: 6px;
+    vertical-align: top;
+    
+}
+
+ .tag-cell:hover
+{
+	background-color:#66FFCC;
+	border-style:ridge;
+}
+
+.mytable{
+	padding-left:50px;
+	border-bottom: 1px dotted rgb(224, 224, 224);
+    padding-bottom: 12px;
+    padding-right: 6px;
+    padding-top: 6px;
+    vertical-align: top;
+}
+
+ .mytable:hover
+{
+	background-color:#66FFCC;
+	border-style:ridge;
+}
+

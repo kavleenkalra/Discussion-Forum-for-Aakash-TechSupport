@@ -1,0 +1,187 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags-AakashTechSupport</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <script src="{% static 'js/Response.js' %}"></script>
+    
+</head>
+
+<body>
+		  <table width=80% height=20%>
+		  <tr>
+		  	<td align='center' rowspan='3'><img src="{% static 'images/Aakash_logo.png' %}" width=250 height=150></td>
+		  	<td align='center' rowspan='2'> <font color='#36A7ED' size='20' face='verdana'>Tech Support</font></td>
+		  </tr>
+		  <tr>
+		  </tr>
+		  <tr>
+		  	<td align='right'><font color='#36A7ED' size='5' face='georgia'>We are here for you...</font></td>
+		  </tr>
+		  </table>
+		  
+			<nav class="navbar navbar-default" role="navigation" style="background-color:#36A7ED;>
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#"><font color='white'>Home</font></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				
+				<li><a href="#"><font color='white'>Discussion</font></a></li>
+				<li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color='white'>FAQ'S</font><b class="caret"></b></a>
+				  <ul class="dropdown-menu">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				    <li class="divider"></li>
+				    <li><a href="#">One more separated link</a></li>
+				  </ul>
+				</li>
+			  </ul>
+			  <ul class="nav navbar-nav navbar-right">
+			  <form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+				  <input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			  </form>
+				<li><a href="#" data-toggle="modal" data-target="#myModalR"><font color='white'>Register</font></a></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModalL"><font color='white'>Login</font></a></li>
+				</ul>
+				</li>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+		
+			<div class="modal fade" id="myModalR">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header" style="background-color:#36A7ED;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 "class="modal-title"><font color="white">Register</font></h4>
+				  </div>
+				  <div class="modal-body">
+				  <form role="form" method="post">
+						{% csrf_token %}<!--to prevent browser form misbehaving and send safe entries to database-->
+						<font color="#36A7ED" size="3">{{postform.as_p}}</font>
+						<!--{{postform.as_p}}--><!--as paragraph-->
+				  </div>
+				  <div class="modal-footer" background-color:#f36>
+				  	<input type="submit" name="submit" style="font-face: 'Comic Sans MS'; font-size:larger; color: white; background-color:#36A7ED; border: 3pt ridge lightgrey"value="submit"/>
+					<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>-->
+				  </div>
+				  </form>
+				</div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+			<div class="modal fade" id="myModalL">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header" style="background-color:#36A7ED;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><font color="white">Login</font></h4>
+				  </div>
+				  <div class="modal-body">
+					<p>One fine body login&hellip;</p>
+				  </div>
+				  <!--<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				  </div>-->
+				</div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+
+	{% block body_block %}
+		<div id="myCarousel" class="carousel slide">
+          <!-- Carousel items -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+ 
+          <div class="carousel-inner">
+   
+              <div id="0" class="item active" align='center'>
+                <img src="{% static 'images/images4.jpeg' %}" alt="" width=600 height=400>
+                <div class="carousel-caption">
+                  <!--<h4>First Image</h4>
+                  <p>Hello Kavleen Kalra</p>-->
+                </div>
+              </div>
+    
+              <div id="1" class="item" align='center'>
+                <img src="{% static 'images/images1.jpeg' %}" alt="" width=600 height=400>
+                <div class="carousel-caption">
+                  <!--<h4>Second Image</h4>
+                  <p>Hello Lavish Kothari</p>-->
+                </div>
+              </div>
+		
+			<div id="2" class="item" align='center'>
+                <img src="{% static 'images/images2.jpeg' %}" alt="" width=600 height=400>
+                <div class="carousel-caption">
+                  <!--<h4>Third Image</h4>
+                  <p>Hello Kavleen Kalra Again</p>-->
+                </div>
+              </div>
+   
+              <div id="3" class="item" align='center'>
+                <img src="{% static 'images/images.jpeg' %}" alt="" width=600 height=400>
+                <div class="carousel-caption">
+                  <!--<h4>Fourth Image</h4>
+                  <p>Hello Lavish Kothari Again</p>-->
+                </div>
+              </div>
+   
+          </div> 
+          <!-- Carousel nav -->
+
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+    </div>
+    
+	<script>
+		$(document).ready(function() {
+		  $('.carousel').carousel();
+		  $('.carousel').on('slid', function() {
+			var to_slide = $('.carousel-inner .item.active').attr('id');
+			$('.carousel-indicators').children().removeClass('active');
+			$('.carousel-indicators [data-slide-to=' + to_slide + ']').addClass('active');
+		  });
+		});
+	</script>			
+	
+	{% endblock %}
+	
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+
