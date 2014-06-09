@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'forum',
     'taggit',
+    'durationfield',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

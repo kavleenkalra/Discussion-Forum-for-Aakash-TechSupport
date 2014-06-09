@@ -5,12 +5,13 @@
     padding-right: 6px;
     padding-top: 6px;
     vertical-align: top;
+    background-color:#DCE1E1;
     
 }
 
  .tag-cell:hover
 {
-	background-color:#66FFCC;
+	background-color:#C4F8F5;
 	border-style:ridge;
 }
 
@@ -21,11 +22,12 @@
     padding-right: 6px;
     padding-top: 6px;
     vertical-align: top;
+    background-color:#DCE1E1;
 }
 
  .mytable:hover
 {
-	background-color:#66FFCC;
+	background-color:#C4F8F5;
 	border-style:ridge;
 }
 

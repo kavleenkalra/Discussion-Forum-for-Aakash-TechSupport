@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block body_block %}
 	<form action='/forum/tag_search/' method='post'>
 	{% csrf_token %}
-	<table width=40%>
+	
+	<h1 align="center"><font color='#36A7ED'><a href='/forum/tag/'>Tags</a></font></h1>
+	<br>
+	<table width=70% align="center">
 		<tr>
-			<td align='center'><h3>Tags</h3></td>
-			<td align='center'><input type='text' name='search_text' placeholder="Search"><input type='submit' name='submit' value='Search Tag'></td>
-			<td><a href='/forum/tag/'>Show all tags</a></td>
+			<td align='right'><input type='text' name='search_text' placeholder="Search"><input type='submit' name='submit' value='Search Tag'></td>
 		</tr>
-	</table >
-</form>
+	</form>
 	<table width='80%'>	
 		{% for post in posts %}
-			<tr><td class='mytable'><h3>{{post.title}}</h3>
-				{{post.body}}</td></tr>
+			<tr class='mytable'>
+				<td><img src="{% static 'images/ques.jpg' %}" width=80 height=80></td>
+				<td><h3><a href='/forum/tag/questions/{{post.pk}}' ><font face='verdana'>{{post.title}}</font></a></h3>{{post.body}}</td>
+			</tr>
 		{% endfor %}
 	</table>
 {% endblock %}
