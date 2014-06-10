@@ -16,8 +16,9 @@ def tag(request):
 def linktag(request,id):
 	context=RequestContext(request)
 	tag= Tag.objects.get(pk=id)
-	posts= Post.objects.filter(tags=tag)
-	context_dict ={'posts':posts}
+	posts= Post.objects.filter(tags=tag).order_by('-created_date')
+	posts1= Post.objects.filter(tags=tag).order_by('-count')
+	context_dict ={'posts':posts,'mytag':tag,'posts1':posts1}
 	return render_to_response('forum/questions.html', context_dict, context)
 	
 def tag_search(request):
@@ -26,18 +27,20 @@ def tag_search(request):
 	mytag=mytag.upper()
 	try:
 		tag= Tag.objects.get(name=mytag)
-		posts=Post.objects.filter(tags=tag)
-		context_dict={'posts':posts}
+		posts=Post.objects.filter(tags=tag).order_by('-created_date')
+		posts1= Post.objects.filter(tags=tag).order_by('-count')
+		context_dict={'posts':posts,'mytag':tag,'posts1':posts1}
 	except Tag.DoesNotExist:
 		context_dict={}
 	return render_to_response('forum/questions.html',context_dict,context) 
 	
-def questions(request,id):
+def questions(request,id,tagid):
 	context=RequestContext(request)
 	post=Post.objects.get(pk=id)
-	print post
+	mytag=Tag.objects.get(pk=tagid)
 	reply=Reply.objects.filter(title=post)
-	context_dict={'posts':post,'reply':reply}
+	mypost=Post.objects.filter(tags=mytag).exclude(pk=id)
+	context_dict={'posts':post,'reply':reply,'mytag':mytag,'mypost':mypost}
 	return render_to_response('forum/reply.html',context_dict,context) 
 
 
