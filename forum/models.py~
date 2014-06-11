@@ -7,13 +7,13 @@ from taggit.managers import TaggableManager
 from shared.utils import *
 from durationfield.db.models.fields.duration import DurationField
 
-class UserProfile(models.Model):
+class UserProfile(models.Model):#Model for storing a user's information.
 	tab_id=models.IntegerField(primary_key=True)
 	user = OneToOneField(User)
 	location=models.CharField(max_length=10)
-	nickname=models.CharField(max_length=10)# May not needed
-	avatar= models.ImageField(upload_to='static/images/profile_image', blank=True)
-	online_status=models.BooleanField(default=False)# Good!
+	nickname=models.CharField(max_length=10)
+	avatar= models.ImageField(upload_to='static/images/profile_image', blank=True)#for storing user's pic
+	online_status=models.BooleanField(default=False)
 	user_type=models.IntegerField(max_length=1,default=0)
 	skills=models.CharField(max_length=100, blank=True)#to mantain user profile
 	posts = IntegerField(default=0)
@@ -32,21 +32,21 @@ class UserProfile(models.Model):
 		self.save()
 
 
-class Category(models.Model):
+class Category(models.Model):#Model for storing categories of various posts.
 	category=models.CharField(max_length=20)
 	description=models.TextField()
 
 	def __unicode__(self):
 		return self.category
 
-class Post(models.Model):
+class Post(models.Model):#Model for storing information about each post with category as its foreign key.
 	title = CharField(max_length=60)
 	body=models.TextField()
 	created_date=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey('UserProfile')
 	category=models.ForeignKey('Category')
 	count=models.IntegerField(default=0)
-	tags = TaggableManager()
+	tags = TaggableManager()#for storing multiple tags for each question
 	admin_id=models.IntegerField()#question will need admin's approval
 
 	class Meta:
@@ -62,9 +62,9 @@ class Post(models.Model):
 		return u"%s - %s\n%s" % (self.user, self.title, created_date)
 	
 
-class Reply(models.Model):
+class Reply(models.Model):#Model for storing information about each reply with post as its foreign key.
 	title=models.ForeignKey('Post')
-	body=models.TextField()
+	body=models.TextField()#body of the reply
 	user=models.ForeignKey(User)
 	post_date=models.DateTimeField(auto_now_add=True)
 	file_upload=models.FileField(upload_to='forum/file',blank=True)
@@ -90,7 +90,7 @@ class Reply(models.Model):
 
 
 
-class Comment(models.Model):
+class Comment(models.Model):#Model for storing information about each Comment with Reply as its foreign key.
 	answer=models.ForeignKey(Reply)
 	text=models.TextField()
 	created_date=models.DateTimeField(auto_now_add=True)
@@ -105,7 +105,7 @@ class Comment(models.Model):
 
 
 
-class Ticket(models.Model):
+class Ticket(models.Model):#Model for Ticket Management System
 	user_id=models.ForeignKey(User)
 	topic_id=models.ForeignKey(Category)
 	message=models.TextField()
@@ -123,7 +123,7 @@ class Ticket(models.Model):
 		return self.user_id.username
 
 
-class Tablet_info(models.Model):
+class Tablet_info(models.Model):#Model for Tablet Information(for Admin's use)
 	rcID=models.IntegerField()
 	rcName=models.CharField(max_length=100)
 	start_tab_id=models.IntegerField()
